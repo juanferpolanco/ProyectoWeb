@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FertiWeb.Models.tblEmpresa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Empresas Registradas</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre@*@Html.DisplayNameFor(model => model.nombreEmp)*@
+        </th>
+        <th>
+            Ciudad@*@Html.DisplayNameFor(model => model.ciudadEmp)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreEmp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ciudadEmp)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.idEmp }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idEmp }) |*@
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idEmp })
+        </td>
+    </tr>
+}
+
+</table>

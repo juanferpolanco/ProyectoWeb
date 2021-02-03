@@ -1,0 +1,39 @@
+﻿@model FertiWeb.Models.tblEmpresa
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Seguro que desea eliminar esta empresa?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre@*@Html.DisplayNameFor(model => model.nombreEmp)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreEmp)
+        </dd>
+
+        <dt>
+            Ciudad@*@Html.DisplayNameFor(model => model.ciudadEmp)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciudadEmp)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

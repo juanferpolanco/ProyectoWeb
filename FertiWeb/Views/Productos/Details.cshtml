@@ -1,0 +1,42 @@
+﻿@model FertiWeb.Models.tblProducto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblProducto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreProd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreProd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioProd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioProd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblEmpresa.nombreEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblEmpresa.nombreEmp)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idProducto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

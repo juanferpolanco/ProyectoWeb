@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbFertiWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblEmpresa">
+    <Key>
+      <PropertyRef Name="idEmp" />
+    </Key>
+    <Property Name="idEmp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ciudadEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblProducto" Relationship="Self.FK__tblProduc__idEmp__29572725" FromRole="tblEmpresa" ToRole="tblProducto" />
+  </EntityType>
+  <EntityType Name="tblProducto">
+    <Key>
+      <PropertyRef Name="idProducto" />
+    </Key>
+    <Property Name="idProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="nombreProd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="precioProd" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="tblEmpresa" Relationship="Self.FK__tblProduc__idEmp__29572725" FromRole="tblProducto" ToRole="tblEmpresa" />
+    <NavigationProperty Name="tblComparar" Relationship="dbFertiWebModel.FK_ProdDos" FromRole="tblProducto" ToRole="tblComparar" />
+    <NavigationProperty Name="tblComparar1" Relationship="dbFertiWebModel.FK_ProdUno" FromRole="tblProducto" ToRole="tblComparar" />
+  </EntityType>
+  <Association Name="FK__tblProduc__idEmp__29572725">
+    <End Role="tblEmpresa" Type="Self.tblEmpresa" Multiplicity="1" />
+    <End Role="tblProducto" Type="Self.tblProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmpresa">
+        <PropertyRef Name="idEmp" />
+      </Principal>
+      <Dependent Role="tblProducto">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbFertiWebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblEmpresa" EntityType="Self.tblEmpresa" />
+    <EntitySet Name="tblProducto" EntityType="Self.tblProducto" />
+    <AssociationSet Name="FK__tblProduc__idEmp__29572725" Association="Self.FK__tblProduc__idEmp__29572725">
+      <End Role="tblEmpresa" EntitySet="tblEmpresa" />
+      <End Role="tblProducto" EntitySet="tblProducto" />
+    </AssociationSet>
+    <EntitySet Name="tblComparar" EntityType="dbFertiWebModel.tblComparar" />
+    <AssociationSet Name="FK_ProdDos" Association="dbFertiWebModel.FK_ProdDos">
+      <End Role="tblProducto" EntitySet="tblProducto" />
+      <End Role="tblComparar" EntitySet="tblComparar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProdUno" Association="dbFertiWebModel.FK_ProdUno">
+      <End Role="tblProducto" EntitySet="tblProducto" />
+      <End Role="tblComparar" EntitySet="tblComparar" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblComparar">
+    <Key>
+      <PropertyRef Name="idComp" />
+    </Key>
+    <Property Name="idComp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idProductoUno" Type="Int32" />
+    <Property Name="idProductoDos" Type="Int32" />
+    <Property Name="compPrecio" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="tblProducto" Relationship="dbFertiWebModel.FK_ProdDos" FromRole="tblComparar" ToRole="tblProducto" />
+    <NavigationProperty Name="tblProducto1" Relationship="dbFertiWebModel.FK_ProdUno" FromRole="tblComparar" ToRole="tblProducto" />
+  </EntityType>
+  <Association Name="FK_ProdDos">
+    <End Type="dbFertiWebModel.tblProducto" Role="tblProducto" Multiplicity="0..1" />
+    <End Type="dbFertiWebModel.tblComparar" Role="tblComparar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProducto">
+        <PropertyRef Name="idProducto" />
+      </Principal>
+      <Dependent Role="tblComparar">
+        <PropertyRef Name="idProductoDos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProdUno">
+    <End Type="dbFertiWebModel.tblProducto" Role="tblProducto" Multiplicity="0..1" />
+    <End Type="dbFertiWebModel.tblComparar" Role="tblComparar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProducto">
+        <PropertyRef Name="idProducto" />
+      </Principal>
+      <Dependent Role="tblComparar">
+        <PropertyRef Name="idProductoUno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FertiWeb.Models.ComEmp3>
+@{
+    ViewBag.Title = "Comparar";
+}
+
+<h1>Resultado</h1>
+
+<hr />
+<p>Empresa 1: @ViewBag.emp1</p>
+<p>Empresa 2: @ViewBag.emp2</p>
+<p></p>
+<p>Productos compartidos:</p>
+<table class="table table-striped">
+    <tr>
+        <th>Producto</th>
+        <th>@ViewBag.emp1</th>
+        <th>@ViewBag.emp2</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(x => d.nombreProd)</td>
+            <td>@Html.DisplayFor(x => d.precio1)</td>
+            <td>@Html.DisplayFor(x => d.precio2)</td>
+        </tr>
+    }
+</table>
+<p></p>
+@*<p><strong>Resultado: @ViewBag.resultado</strong></p>*@
+
+<hr />
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>

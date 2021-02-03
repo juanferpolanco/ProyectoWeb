@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbFertiWebModelStoreContainer" CdmEntityContainer="dbFertiWebEntities">
+    <EntitySetMapping Name="tblEmpresa">
+      <EntityTypeMapping TypeName="dbFertiWebModel.tblEmpresa">
+        <MappingFragment StoreEntitySet="tblEmpresa">
+          <ScalarProperty Name="idEmp" ColumnName="idEmp" />
+          <ScalarProperty Name="nombreEmp" ColumnName="nombreEmp" />
+          <ScalarProperty Name="ciudadEmp" ColumnName="ciudadEmp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProducto">
+      <EntityTypeMapping TypeName="dbFertiWebModel.tblProducto">
+        <MappingFragment StoreEntitySet="tblProducto">
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="nombreProd" ColumnName="nombreProd" />
+          <ScalarProperty Name="precioProd" ColumnName="precioProd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblComparar">
+      <EntityTypeMapping TypeName="dbFertiWebModel.tblComparar">
+        <MappingFragment StoreEntitySet="tblComparar">
+          <ScalarProperty Name="compPrecio" ColumnName="compPrecio" />
+          <ScalarProperty Name="idProductoDos" ColumnName="idProductoDos" />
+          <ScalarProperty Name="idProductoUno" ColumnName="idProductoUno" />
+          <ScalarProperty Name="idComp" ColumnName="idComp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

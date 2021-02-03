@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Index";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+}
+
+<h1>Comparación de Productos</h1>
+
+@using (Html.BeginForm("Index", "Comparar", FormMethod.Post))
+{
+    <div>
+        <div class="productos">
+            <p>Producto deseado: @Html.DropDownList("datos1", items, new { @class = "form-control" })</p>
+            <p>Producto a comparar: @Html.DropDownList("datos2", items, new { @class = "form-control" })</p>
+            <input type="submit" value="Buscar" class="btn btn-primary" /> 
+        </div>
+    </div>
+}
+
+

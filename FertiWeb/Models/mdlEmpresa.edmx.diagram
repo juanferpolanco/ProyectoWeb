@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="53da2461a2dc4d968fe26b8fdcbae468" Name="Diagram1">
+        <EntityTypeShape EntityType="dbFertiWebModel.tblEmpresa" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFertiWebModel.tblProducto" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="dbFertiWebModel.FK__tblProduc__idEmp__29572725" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbFertiWebModel.tblComparar" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="dbFertiWebModel.FK_ProdDos" />
+        <AssociationConnector Association="dbFertiWebModel.FK_ProdUno" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
